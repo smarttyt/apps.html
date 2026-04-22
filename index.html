@@ -3,45 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universe Engine</title>
+    <meta name="description" content="Universe Engine - Interactive tools and features for developers">
+    <title>Universe Engine - Interactive Platform</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%234a90e2'/></svg>">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🚀 Universe Engine</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#tools" class="nav-link">Tools</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-        </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to Universe Engine</h1>
+            <p class="hero-subtitle">A modern platform for interactive tools and features</p>
+            <button class="cta-button" onclick="document.getElementById('tools').scrollIntoView({ behavior: 'smooth' })">Get Started</button>
+        </div>
+        <div class="hero-background"></div>
     </header>
+
+    <!-- Main Content -->
     <main>
-        <h1>Welcome to the Universe Engine</h1>
-        <section id="bilingual-support">
-            <h2>Bilingual Support</h2>
-            <p>Welcome! (English)</p>
-            <p>¡Bienvenidos! (Spanish)</p>
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2>Core Features</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3>Bilingual Support</h3>
+                        <p>Seamlessly switch between English and Spanish interfaces with full localization support.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🔐</div>
+                        <h3>Numerical Stability</h3>
+                        <p>Robust algorithms designed for precise mathematical computations and edge cases.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>High Performance</h3>
+                        <p>Optimized for speed and efficiency across all devices and platforms.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🛠️</div>
+                        <h3>Developer Tools</h3>
+                        <p>Comprehensive API and tools for seamless integration into your projects.</p>
+                    </article>
+                </div>
+            </div>
         </section>
-        <section id="l-constant-doc">
-            <h2>L-Constant Documentation</h2>
-            <p>Details about the L-constant go here.</p>
+
+        <!-- Tools Section -->
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <h2>Interactive Tools</h2>
+                <div class="tools-grid">
+                    <!-- Calculator Tool -->
+                    <div class="tool-card">
+                        <h3>Simple Calculator</h3>
+                        <div class="calculator">
+                            <input type="number" id="num1" placeholder="First number" class="calc-input">
+                            <select id="operation" class="calc-select">
+                                <option value="add">+</option>
+                                <option value="subtract">−</option>
+                                <option value="multiply">×</option>
+                                <option value="divide">÷</option>
+                            </select>
+                            <input type="number" id="num2" placeholder="Second number" class="calc-input">
+                            <button class="calc-btn" onclick="performCalculation()">Calculate</button>
+                            <div class="calc-result" id="calcResult"></div>
+                        </div>
+                    </div>
+
+                    <!-- Text Converter Tool -->
+                    <div class="tool-card">
+                        <h3>Text Converter</h3>
+                        <textarea id="textInput" class="text-area" placeholder="Enter text here..."></textarea>
+                        <div class="button-group">
+                            <button class="tool-btn" onclick="convertUpperCase()">UPPERCASE</button>
+                            <button class="tool-btn" onclick="convertLowerCase()">lowercase</button>
+                            <button class="tool-btn" onclick="reverseText()">Reverse</button>
+                        </div>
+                        <textarea id="textOutput" class="text-area" placeholder="Output..." readonly></textarea>
+                    </div>
+
+                    <!-- Language Toggle -->
+                    <div class="tool-card">
+                        <h3>Language Preferences</h3>
+                        <div class="language-selector">
+                            <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">English 🇺🇸</button>
+                            <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">Español 🇪🇸</button>
+                        </div>
+                        <p id="lang-greeting" class="lang-text">Welcome to Universe Engine!</p>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="interactive-features">
-            <h2>Interactive Features</h2>
-            <button id="interactive-btn">Click Me!</button>
-            <p id="interactive-response"></p>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Universe Engine</h2>
+                <div class="about-content">
+                    <p>Universe Engine is a modern, interactive platform built with cutting-edge web technologies. It provides developers and users with powerful tools for computation, conversion, and data processing.</p>
+                    <p>Our mission is to create a seamless, intuitive experience while maintaining the highest standards of performance and reliability.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <h4>100%</h4>
+                            <p>Uptime</p>
+                        </div>
+                        <div class="stat">
+                            <h4>2</h4>
+                            <p>Languages</p>
+                        </div>
+                        <div class="stat">
+                            <h4>∞</h4>
+                            <p>Possibilities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <p class="form-message" id="formMessage"></p>
+                </form>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Universe Engine. All rights reserved.</p>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Universe Engine. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#home">Privacy Policy</a>
+                <a href="#home">Terms of Service</a>
+                <a href="#home">GitHub</a>
+            </div>
+        </div>
     </footer>
-    <script>
-        document.getElementById('interactive-btn').onclick = function() {
-            document.getElementById('interactive-response').innerText = 'Button clicked!';
-        };
-    </script>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
